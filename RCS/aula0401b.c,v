@@ -1,0 +1,140 @@
+head	1.2;
+access;
+symbols;
+locks
+	luiza.rosa:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2022.01.06.01.50.06;	author luiza.rosa;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.01.05.23.57.11;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Calcula o valor de um numero elevado a um expoente com a estrutura Do While.
+@
+
+
+1.2
+log
+@Programa: Insercao de melhores praticas de programacao e tratamento de erros.
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Programa que calcula um numero elevado a um expoente 
+ *						se utilizando da estrutura de repeticao Do... While. 
+ *
+ * $Author: luiza.rosa $
+ * $Date: 2022/01/05 23:57:11 $
+ * $Log: aula0401b.c,v $
+ * Revision 1.1  2022/01/05 23:57:11  luiza.rosa
+ * Initial revision
+ *
+*/
+
+#include <math.h>
+
+#include "aula0401.h"
+
+long double
+CalcularExponencial (double base, int expoente)
+{
+
+	long double resultado = 1;
+
+	if ((!base) && (expoente < 0))
+	{
+		#if defined (__STRICT_ANSI__) && defined (__linux__)
+			return 1.0 / 0.0;
+		#else
+			return INFINITY;
+		#endif
+	}
+
+	if (!expoente)
+		return 1;
+	
+	if (expoente == 1)
+		return base;
+
+	if (expoente > 0)		
+	{
+		/* Expoente positivo */
+		do
+		{
+
+			resultado *= base; 
+			expoente -= 1;
+		 
+		}	
+		while ((expoente != 0) && (expoente > 0));
+ 			
+	}
+	else							
+	{
+		/* Expoente negativo */
+		do
+		{
+
+			resultado *= base; 
+			expoente += 1; 			
+		
+		}
+		while ((expoente != 0) && (expoente < 0));
+	
+		resultado = 1 / resultado;
+
+	}
+
+	return resultado;
+	
+}
+
+/* $RCSfile: aula0401b.c,v $ */
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d12 6
+a17 3
+ * $Author$
+ * $Date$
+ * $Log$
+d30 8
+a37 2
+	if (!base && expoente < 0)
+		return INFINITY;
+d47 1
+a47 1
+
+d55 1
+a55 1
+		while (expoente != 0 && expoente > 0);
+d60 1
+a60 1
+
+d68 1
+a68 1
+		while (expoente != 0 && expoente < 0);
+d78 1
+a78 1
+/* $RCSfile$ */
+@

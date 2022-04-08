@@ -1,0 +1,71 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2022.03.11.16.14.21;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Prototipo das funcoes de obter mensagens do usuario e definicao.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Definicao do tipo enumerado
+ * 				    eelTipoNumerosMensagemInterfaceUsuario
+ *						e prototipo das funcoes de obter
+ *  					mensagens de interface usuario Cli e Web.
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+*/
+
+#ifndef _EELINTERFACEUSUARIO_
+#define _EELINTERFACEUSUARIO_ "@@(#)eelInterfaceUsuario.h $Revision$"
+
+#ifdef __linux__
+#define _BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED
+#endif
+
+#include "eelTipos.h"
+
+typedef enum
+{
+	
+	mensagem,
+	usuario,
+	senha,
+	botao	
+
+} eelTipoNumerosMensagemInterfaceUsuario;
+
+char *
+EelObterMensagemInterfaceUsuarioCli (eelTipoIdiomas, eelTipoNumerosMensagemInterfaceUsuario);
+
+char *
+EelObterMensagemInterfaceUsuarioWeb (eelTipoIdiomas, eelTipoNumerosMensagemInterfaceUsuario);
+
+#endif
+
+/* $RCSfile$ */
+
+@

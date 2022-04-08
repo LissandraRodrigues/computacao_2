@@ -1,0 +1,110 @@
+head	1.2;
+access;
+symbols;
+locks
+	luiza.rosa:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2022.01.07.03.05.26;	author luiza.rosa;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.01.06.23.48.29;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Calcular  a Serie Harmonica Alternada com o uso da estrutura de repeticao While.
+@
+
+
+1.2
+log
+@Programa: Insercao de melhores praticas de programacao.
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Programa que calcula a serie harmonica alternada de um numero
+ *						com a estrutura de repeticao While.
+ *
+ * $Author: luiza.rosa $
+ * $Date: 2022/01/06 23:48:29 $
+ * $Log: aula0403d.c,v $
+ * Revision 1.1  2022/01/06 23:48:29  luiza.rosa
+ * Initial revision
+ *
+*/
+
+#include "aula0401.h"
+
+float
+CalcularSerieHarmonicaAlternada (unsigned short int termo)
+{
+
+	float resultado = 0;
+
+	if (!termo)
+		return resultado;
+	
+	while (termo > 0)
+	{
+
+		/* Termo Par */
+		if (!(termo % 2))
+			resultado += (-1 / CalcularExponencial (termo, termo));
+	  
+		/* Termo Impar */
+		else
+			resultado += (1 / CalcularExponencial (termo, termo));
+		
+		termo--;	
+		
+	}	  
+
+	return resultado;
+
+}
+
+/* $RCSfile: aula0403d.c,v $ */
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d12 6
+a17 3
+ * $Author$
+ * $Date$
+ * $Log$
+d26 2
+d29 1
+a29 1
+		return 0;
+d36 5
+a40 4
+			return (CalcularSerieHarmonicaAlternada (termo - 1) + (-1 / CalcularExponencial (termo, termo)));
+	  /* Termo Impar */
+		else 	
+			return (CalcularSerieHarmonicaAlternada (termo - 1) + (1 / CalcularExponencial (termo, termo)));
+d42 1
+a42 1
+		--termo;	
+d46 2
+d50 1
+a50 1
+/* $RCSfile$ */
+@

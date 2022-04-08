@@ -1,0 +1,73 @@
+head	1.1;
+access;
+symbols;
+locks
+	luiza.rosa:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2021.12.08.21.12.43;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Exibe a sequencia Fibonacci com o uso do Do While.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Programa que retorna a sequencia 
+ *						Fibonacci se utilizando da estrutura
+ *            de repeticao Do While. 
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+*/
+
+#include "aula0201.h"
+
+ull
+CalcularTermoSerieFibonacci (us numero)
+{
+
+	ull auxiliar1 = 0;
+	ull auxiliar2 = 1;
+	ull resultado = 0;
+
+	if (numero <= 1)
+		return numero;
+
+	do 
+	{
+		
+		auxiliar1 = resultado + auxiliar2;
+		
+		resultado = auxiliar2;
+
+		auxiliar2 = auxiliar1;
+
+		numero--;
+	
+	}
+	while (numero > 0);
+	
+	return resultado;
+
+}
+/* RCSfile$ */
+@

@@ -1,0 +1,54 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2022.03.11.16.13.04;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: HTML de indice EN.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@<!--
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Indice - Ingles.
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+-->
+
+<html>
+
+	<body>
+
+		<header>
+			
+			<p> Indice - Ingles </p>
+
+		</header>
+
+	</body>
+
+</html>
+
+<!-- $RCSfile$ -->
+@

@@ -1,0 +1,109 @@
+head	1.3;
+access;
+symbols;
+locks
+	luiza.rosa:1.3; strict;
+comment	@ * @;
+
+
+1.3
+date	2022.01.07.03.05.04;	author luiza.rosa;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2022.01.07.02.55.56;	author luiza.rosa;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.01.07.02.34.25;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Calcula a Serie Harmonica Alternada com o uso de Recursividade e a Biblioteca math.h.
+@
+
+
+1.3
+log
+@Programa: Insercao de melhores praticas de programacao.
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Programa que calcula a serie harmonica alternada de um numero
+ *						com Recursividade e a biblioteca Math.
+ *
+ * $Author: luiza.rosa $
+ * $Date: 2022/01/07 02:55:56 $
+ * $Log: aula0403e.c,v $
+ * Revision 1.2  2022/01/07 02:55:56  luiza.rosa
+ * Programa: Insercao de melhoras praticas de programacao.
+ *
+ * Revision 1.1  2022/01/07 02:34:25  luiza.rosa
+ * Initial revision
+ *
+*/
+
+#include <math.h>
+
+#include "aula0401.h"
+
+float
+CalcularSerieHarmonicaAlternada (unsigned short int termo)
+{
+
+	if (!termo)
+		return 0;
+	
+	/* Termo Par */
+	if (!(termo % 2))
+		return (CalcularSerieHarmonicaAlternada (termo - 1) + (-1 / pow (termo, termo)));
+
+	/* Termo Impar */
+	return (CalcularSerieHarmonicaAlternada (termo - 1) + (1 / pow (termo, termo)));
+	
+}
+
+/* $RCSfile: aula0403e.c,v $ */
+@
+
+
+1.2
+log
+@Programa: Insercao de melhoras praticas de programacao.
+@
+text
+@d13 1
+a13 1
+ * $Date: 2022/01/07 02:34:25 $
+d15 3
+d37 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d10 7
+a16 1
+ *						com a estrutura de repeticao While e a biblioteca Math.
+a17 3
+ * $Author$
+ * $Date$
+ * $Log$
+d39 1
+a39 1
+/* $RCSfile$ */
+@

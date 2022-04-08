@@ -1,0 +1,309 @@
+head	1.6;
+access;
+symbols;
+locks
+	luiza.rosa:1.6; strict;
+comment	@ * @;
+
+
+1.6
+date	2022.01.17.00.53.34;	author luiza.rosa;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2022.01.17.00.43.04;	author luiza.rosa;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2022.01.16.14.03.14;	author luiza.rosa;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2022.01.16.14.01.52;	author luiza.rosa;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2022.01.14.16.14.48;	author luiza.rosa;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.01.14.01.42.23;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Valida RG.
+@
+
+
+1.6
+log
+@Programa: Correcao da descricao.
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Programa de testes da funcao de
+ *            Validar RG com entrada byte e 9 argumentos.
+ *
+ * $Author: luiza.rosa $
+ * $Date: 2022/01/17 00:43:04 $
+ * $Log: aula0503a.c,v $
+ * Revision 1.5  2022/01/17 00:43:04  luiza.rosa
+ * Programa: Atualizacao da descricao.
+ *
+ * Revision 1.4  2022/01/16 14:03:14  luiza.rosa
+ * Programa: Correcao do tamanho correto do array rg.
+ *
+ * Revision 1.3  2022/01/16 14:01:52  luiza.rosa
+ * Programa: Insercao de melhores praticas de programacao.
+ *
+ * Revision 1.2  2022/01/14 16:14:48  luiza.rosa
+ * Programa: Correcao da logica do programa e nome das macros.
+ *
+ * Revision 1.1  2022/01/14 01:42:23  luiza.rosa
+ * Initial revision
+ *
+*/
+
+#ifdef __linux__
+#define _XOPEN_SOURCE 600
+#endif
+
+#if defined (__FreeBSD__) && defined (__STRICT_ANSI__)
+#define __ISO_C_VISIBLE 1999
+#endif
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "aula0501.h"
+
+#define SUCESSO																		0
+
+#define NUMERO_ARGUMENTOS_INVALIDO								1
+#define QUANTIDADE_CARACTERES_INVALIDA						2
+#define CARACTERE_INVALIDO												3
+
+#define COMPRIMENTO_RG														9
+#define NUMERO_ARGUMENTOS													10
+
+int
+main (int argc, char **argv) 
+{
+	
+	byte rg [COMPRIMENTO_RG];
+
+	unsigned contador;
+
+	tipoErros resultado;
+
+	if (argc != NUMERO_ARGUMENTOS)
+	{
+		printf ("\nUso: %s <d1> <d2> <d3> <d4> <d5> <d6> <d7> <d8> <d9>\n\n", argv [0]);
+		exit (NUMERO_ARGUMENTOS_INVALIDO);
+	}
+	
+	/* Digitos */
+			
+	for (contador = 0; contador < COMPRIMENTO_RG; contador++)
+	{
+
+		if (strlen (argv [contador + 1]) != 1)
+		{
+			printf ("\nQuantidade de caracteres %s invalida.\n\n", argv [contador + 1]);
+			exit (QUANTIDADE_CARACTERES_INVALIDA);
+		}
+	
+		if ((argv [contador + 1][0] < '0') || (argv [contador + 1][0] > '9'))			   
+		{
+			printf ("\nO valor inserido (%s) eh invalido.\n\n", argv [contador + 1]);
+			exit (CARACTERE_INVALIDO);
+		}
+		
+		rg [contador] = (argv [contador + 1][0] - '0');	
+
+	}
+
+	/* Resultado */ 
+
+	resultado = ValidarRg (rg);
+
+	printf ("\nRG: ");
+
+	for (contador = 0; contador < (COMPRIMENTO_RG - 1); contador++)
+	{
+
+		if ((contador == 2) || (contador == 5))
+			printf (".");
+		
+		printf ("%hhu", rg [contador]);
+
+	}
+	
+	printf ("-"); 
+			
+	if (rg [8] == 1)
+		printf ("X");
+	else if (rg [8] == 11)
+		printf ("0");
+	else
+		printf ("%hhu", rg [8]);
+
+	if (resultado == 1)
+		printf (" - valido\n\n");
+	else
+		printf (" - invalido\n\n");
+
+	return SUCESSO;
+
+}
+
+/* $RCSfile: aula0503a.c,v $ */
+@
+
+
+1.5
+log
+@Programa: Atualizacao da descricao.
+@
+text
+@d9 1
+a9 1
+ * Descricao: Programa de testes do programa de
+d13 1
+a13 1
+ * $Date: 2022/01/16 14:03:14 $
+d15 3
+@
+
+
+1.4
+log
+@Programa: Correcao do tamanho correto do array rg.
+@
+text
+@d9 2
+a10 1
+ * Descricao: Programa de testes do programa de Validar RG.
+d13 1
+a13 1
+ * $Date: 2022/01/16 14:01:52 $
+d15 3
+@
+
+
+1.3
+log
+@Programa: Insercao de melhores praticas de programacao.
+@
+text
+@d12 1
+a12 1
+ * $Date: 2022/01/14 16:14:48 $
+d14 3
+d52 1
+a52 1
+	byte rg [COMPRIMENTO_RG + 1];
+@
+
+
+1.2
+log
+@Programa: Correcao da logica do programa e nome das macros.
+@
+text
+@d12 1
+a12 1
+ * $Date: 2022/01/14 01:42:23 $
+d14 3
+d42 1
+a42 1
+#define COMPRIMENTO_RG														10
+d49 1
+a49 1
+	byte rg [COMPRIMENTO_RG];
+d63 1
+a63 1
+	for (contador = 0; contador < (COMPRIMENTO_RG - 1); contador++)
+d88 1
+a88 1
+	for (contador = 0; contador < COMPRIMENTO_RG - 2; contador++)
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d11 6
+a16 3
+ * $Author$
+ * $Date$
+ * $Log$
+d36 1
+a36 1
+#define QUANTIDADE_CARACTERES_INVALIDO						2
+d39 2
+a40 3
+#define COMPRIMENTO_RG														9
+#define NUMERO_ARGUMENTOS													2
+#define EOS																				'\0'
+d47 2
+a48 1
+	unsigned contador, indice = 0;
+d54 1
+a54 1
+		printf ("\nUso: %s <d1><d2>.<d3><d4><d5>.<d6><d7<d8>-<d9>\n\n", argv [0]);
+d57 1
+a57 1
+
+d59 2
+a60 8
+		
+	if (strlen (argv [1]) != COMPRIMENTO_RG + 3)
+	{
+		printf ("\nQuantidade de caracteres invalida. Preencha da seguinte forma: 00.000.000-0\n\n");
+		exit (QUANTIDADE_CARACTERES_INVALIDO);
+	}	
+
+	for (contador = 0; contador < (COMPRIMENTO_RG + 3); contador++)
+d63 1
+a63 3
+		if (((argv [1][contador] < '0') || (argv [1][contador] > '9')) &&
+			   (argv [1][contador] != '.') &&
+				 (argv [1][contador] != '-'))
+d65 2
+a66 2
+			printf ("\nO valor inserido (%c) eh invalido.\n\n", argv [1][contador]);
+			exit (CARACTERE_INVALIDO);
+d68 2
+a69 2
+
+		if ((argv [1][contador] != '.') && (argv [1][contador] != '-')) 
+d71 2
+a72 2
+			rg [indice] = (argv [1][contador] - '0');	
+			indice++;
+d75 2
+d85 1
+a85 1
+	for (contador = 0; contador < COMPRIMENTO_RG - 1; contador++)
+d113 1
+a113 1
+/* $RCSfile$ */
+@

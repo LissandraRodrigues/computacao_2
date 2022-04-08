@@ -1,0 +1,80 @@
+head	1.2;
+access;
+symbols;
+locks
+	luiza.rosa:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2022.01.06.19.10.29;	author luiza.rosa;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.01.04.21.38.54;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Prototipo da funcao de calcular exponencial.
+@
+
+
+1.2
+log
+@Programa: Insercao do prototipo da funcao de calcular Serie Harmonica Alternada.
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Prototipo da funcao de calcular exponencial. 
+ *
+ * $Author: luiza.rosa $
+ * $Date: 2022/01/04 21:38:54 $
+ * $Log: aula0401.h,v $
+ * Revision 1.1  2022/01/04 21:38:54  luiza.rosa
+ * Initial revision
+ *
+ */
+
+#ifndef _AULA0401_
+#define _AULA0401_							 "@@(#)aula0401.h $Revision: 1.1 $"
+
+long double
+CalcularExponencial (double, int);
+
+float 
+CalcularSerieHarmonicaAlternada (unsigned short int);
+
+#endif
+
+/* $RCSfile: aula0401.h,v $ */
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d11 6
+a16 3
+ * $Author$
+ * $Date$
+ * $Log$
+d20 1
+a20 1
+#define _AULA0401_							 "@@(#)aula0401.h $Revision$"
+d25 3
+d30 1
+a30 1
+/* $RCSfile$ */
+@

@@ -1,0 +1,162 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.4
+date	2022.03.02.20.41.11;	author luiza.rosa;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2022.02.25.23.02.14;	author luiza.rosa;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2022.02.25.20.47.06;	author luiza.rosa;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.02.25.01.08.22;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Prototipo da funcao de exibir conteudo de um arquivo e definicoes.
+@
+
+
+1.4
+log
+@Programa: Prototipo da funcao de converter de Dos para Unix.
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Prototipo das funcoes de exibir conteudo de um arquivo,
+ *            converter arquivo formato Unix para formato Dos e vice-versa,
+ *            alem de definicoes de tipo.
+ *
+ * $Author: luiza.rosa $
+ * $Date: 2022/02/25 23:02:14 $
+ * $Log: aula0901.h,v $
+ * Revision 1.3  2022/02/25 23:02:14  luiza.rosa
+ * Programa: Correcao para versao linux.
+ *
+ * Revision 1.2  2022/02/25 20:47:06  luiza.rosa
+ * Programa: Insercao do prototipo da funcao de converter formato unix para dos.
+ *
+ * Revision 1.1  2022/02/25 01:08:22  luiza.rosa
+ * Initial revision
+ *
+*/
+
+#ifndef _AULA0901_
+#define _AULA0901_							 "@@(#)aula0901.h $Revision: 1.3 $"
+#endif
+
+#ifdef __linux__
+#define _BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED
+#endif
+
+#define	EOS															          '\0'					
+
+#define BUFFER																	  16
+#define COMPRIMENTO_BUFFER												100
+
+typedef enum
+{ 
+
+	ok,
+	invalido,
+	memoriaInsuficiente,
+	erroLeitura
+
+} tipoErros;
+
+typedef unsigned char byte;
+
+tipoErros 
+ExibirConteudoArquivo (char * /* (E) */);
+
+tipoErros
+ConverterArquivoFormatoUnixParaFormatoDos (char *original, 
+																					 char *convertido);
+
+tipoErros
+ConverterArquivoFormatoDosParaFormatoUnix (char *original, 
+																					 char *convertido);
+
+/* $RCSfile: aula0901.h,v $ */
+@
+
+
+1.3
+log
+@Programa: Correcao para versao linux.
+@
+text
+@d10 2
+a11 2
+ *            converter arquivo formato Unix para formato Dos e definicoes
+ *        		de tipo.
+d14 1
+a14 1
+ * $Date: 2022/02/25 20:47:06 $
+d16 3
+d28 5
+a32 1
+#define _AULA0901_							 "@@(#)aula0901.h $Revision: 1.2 $"
+d57 4
+@
+
+
+1.2
+log
+@Programa: Insercao do prototipo da funcao de converter formato unix para dos.
+@
+text
+@d14 1
+a14 1
+ * $Date: 2022/02/25 01:08:22 $
+d16 3
+d24 2
+a25 2
+#ifndef _AULA09_
+#define _AULA09_							 "@@(#)aula0901.h $Revision: 1.1 $"
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d9 9
+a17 1
+ * Descricao: Prototipo da funcao de ExibirConteudoArquivo.
+a18 3
+ * $Author$
+ * $Date$
+ * $Log$
+d22 1
+a22 1
+#define _AULA09_							 "@@(#)aula0901.h $Revision$"
+d25 1
+a25 1
+#define	EOS															'\0'					
+d45 5
+a49 1
+/* $RCSfile$ */
+@

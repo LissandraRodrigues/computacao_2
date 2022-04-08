@@ -1,0 +1,100 @@
+head	1.2;
+access;
+symbols;
+locks
+	luiza.rosa:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2021.12.14.23.06.37;	author luiza.rosa;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2021.12.14.16.49.49;	author luiza.rosa;	state Exp;
+branches;
+next	;
+
+
+desc
+@Programa: Exibe o MDC entre dois numeros se utilizando de Recursividade.
+@
+
+
+1.2
+log
+@Programa: Insercao de melhores praticas de programacao.
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2021/2
+ * Professor: Marcelo Luiz Drumond Lanza
+ *
+ * Autor: Luiza Lissandra Rodrigues Rosa
+ * Descricao: Programa que exibe MDC entre dois numeros  
+ *						se utilizando de Recursividade. 
+ *
+ * $Author: luiza.rosa $
+ * $Date: 2021/12/14 16:49:49 $
+ * $Log: aula0301a.c,v $
+ * Revision 1.1  2021/12/14 16:49:49  luiza.rosa
+ * Initial revision
+ *
+*/
+
+#include "aula0301.h"
+
+ull
+CalcularMaximoDivisorComum (ull numero1, ull numero2)
+{
+
+	ull restoDivisao;
+
+	if(!numero1 && !numero2)
+		return 0;
+
+	if (!numero1)
+		return numero2;
+	
+	if (!numero2)
+		return numero1;
+
+	restoDivisao = numero1 % numero2;
+
+	if (!restoDivisao)		
+		return numero2;
+	else 
+		return CalcularMaximoDivisorComum (numero2, restoDivisao);
+
+}
+
+/* $RCSfile: aula0301a.c,v $ */
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d12 6
+a17 3
+ * $Author$
+ * $Date$
+ * $Log$
+d28 1
+a28 1
+	if(!numero2 && !numero1)
+d31 3
+a35 3
+	
+	if (!numero1)
+		return numero2;
+d46 1
+a46 1
+/* $RCSfile$ */
+@
